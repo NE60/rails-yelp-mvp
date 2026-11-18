@@ -1,0 +1,17 @@
+<h1>Détails du restaurant selectionné</h1>
+
+<h2> Nom du restaurant : <%= @restaurant.name %></h2>
+<p>Adresse : <%= @restaurant.address %></p>
+<p>Téléphone : <%= @restaurant.phone_number %></p>
+<p>Catégorie : <%= @restaurant.category %></p>
+
+<h3>Avis</h3>
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li><%= review.rating %>/5 - <%= review.content %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Ajouter un avis", new_restaurant_review_path(@restaurant) %>
+
+<%= link_to "Retour à la liste des Restaurants", restaurants_path %>
